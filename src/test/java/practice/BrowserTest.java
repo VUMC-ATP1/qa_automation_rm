@@ -1,6 +1,8 @@
 package practice;
 
 import lombok.extern.log4j.Log4j;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.testng.Assert;
@@ -37,10 +39,17 @@ public class BrowserTest {
         Assert.assertEquals(driver.getCurrentUrl(), GOOGLE_URL);
     }
 
+    @Test
+    public void driverTest() {
+        driver.manage().window().fullscreen();
+        driver.manage().window().setSize(new Dimension(1024, 768));
+        driver.manage().window().setPosition(new Point(100,200));
+    }
+
     @AfterMethod(alwaysRun = true)
     public void tearDown() {
         log.info("Closing ChromeDriver");
-       // log.debug();
+        log.debug("DEBUG: Closing");
         driver.quit();
     }
 
