@@ -3,7 +3,8 @@ import org.testng.annotations.Test;
 
 public class CalculatorTest {
 
-    @Test
+
+   @Test
     public void testAddMethod() {
         Calculator calculator = new Calculator();
         Assert.assertEquals(calculator.add(10.00, 20.00), 30.00, "Found some issue");
