@@ -19,11 +19,11 @@ public class CommonStepsDefs {
         driver.get("https://www.saucedemo.com/");
 
     }
-    @When("I login  with {string} and {string}")
+   /* @When("I login  with {string} and {string}")
     public void authorize(String username, String password) {
         authorizationPage.authorizeUser(username, password);
 
-    }
+    }*/
     @Then("I am successfully logged in")
     public void checkSuccessLogin() {
         Assertions.assertThat(driver.getCurrentUrl()).containsIgnoringCase("inventory.html");
@@ -33,7 +33,7 @@ public class CommonStepsDefs {
 
     @Then("I see login error message {string}")
     public void checkErrorMessage(String error) {
-     //   Assertions.assertThat(driver.getClass().
+        Assertions.assertThat(authorizationPage.getErrorMessage().getText()).isEqualTo(error);
     }
 
 }

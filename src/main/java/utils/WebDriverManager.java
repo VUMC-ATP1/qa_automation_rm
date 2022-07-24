@@ -4,7 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class WebDriverManager {
-    // Jav singleton pattern
+
+    // Java singleton pattern
     private static WebDriver driver;
 
     public static WebDriver getInstance() {

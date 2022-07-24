@@ -4,6 +4,11 @@ Feature: Login feature
   I want to be able to log in
   So I can purchase
 
+  Scenario: Success login single user
+    Given I have to navigate to login page
+    When I login  with "standard_user" and "secret_sauce"
+    Then I am successfully logged in
+
   Scenario Outline: Success login
     Given I have to navigate to login page
     When I login  with "<username>" and "<password>"
@@ -18,4 +23,3 @@ Feature: Login feature
     Given I have to navigate to login page
     When I login  with "" and "secret_sauce"
     Then I see login error message 'Epic sadface: Username is required'
-

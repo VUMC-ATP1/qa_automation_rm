@@ -27,7 +27,7 @@ import java.util.logging.Logger;
 @Log4j
 public class BrowserTest {
   //  ChromeDriver driver;
-   WebDriver driver;
+    WebDriver driver;
     MainPage mainPage;
 
     //WebDriverWait wait;
@@ -47,8 +47,8 @@ public class BrowserTest {
 
        ChromeOptions options = new ChromeOptions();
        options.setCapability("platformName", "Windows");
-       driver = new ChromeDriver();
-      //driver = new RemoteWebDriver(new URL("http://192.168.0.199:4444/"), options);
+     //  driver = new ChromeDriver();
+      driver = new RemoteWebDriver(new URL("http://192.168.0.199:4444/"), options);
       // driver = new RemoteWebDriver(new URL("https://oauth-renars.malnacs-5ed83:c8cd7556-7795-497d-8c9f-56a7bd54d90c@ondemand.eu-central-1.saucelabs.com:443/wd/hub"), options);
        mainPage = new MainPage(driver);
     //   wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -120,38 +120,37 @@ public class BrowserTest {
        // driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         mainPage.setClickButton();
 
-
-        driver.findElement(By.id("yolo"));
-
     }
 
-   /* @Test
+/*  @Test
     public void testJsExecutor() {
         driver.get("https://www.lu.lv");
         WebElement kontakti = driver.findElement(By.linkText("Kontakti"));
+        //Object casting
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true)", kontakti);
         ((JavascriptExecutor) driver).executeScript("arguments[0].click()", kontakti);
     }*/
 
-    @Test
+/*    @Test
     public void testActions() {
         driver.get(LOCAL_FILE);
         Actions actions = new Actions(driver);
         mainPage.getTextAreaElement().click();
-        actions.moveToElement(mainPage.getTextAreaElement())
-                .keyDown(Keys.CONTROL).sendKeys("acvv").keyUp(Keys.CONTROL).perform();
+        actions.moveToElement(mainPage.getTextAreaElement()).keyDown(Keys.CONTROL).sendKeys("acvv").keyUp(Keys.CONTROL).perform();
 
-    }
-
+    }*/
 
 
-//    @Test
-/*    public void testBrowserTab() {
+
+/*    @Test
+    public void testBrowserTab() {
         driver.get(LOCAL_FILE);
         mainPage.getLinkedinURL().click();
-
+        System.out.println("dd");
         List<String> tabs = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(1));
+        driver.close();
+        driver.switchTo().window(tabs.get(0));
     }*/
 
 
