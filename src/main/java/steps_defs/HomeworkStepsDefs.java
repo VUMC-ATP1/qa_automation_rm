@@ -59,7 +59,7 @@ public class HomeworkStepsDefs {
         checkoutPage.submitBuyerInfo(fName, lName, zip);
     }
     @When("I validate that order has {int} item, {string} quantity of product {string}")
-    public void iValidateThatOrderHasItemQuantityOfProduct(int itemQty, String productQty, String product) {
+    public void validateOrder(int itemQty, String productQty, String product) {
         Assertions.assertThat(driver.findElements(By.className("cart_item")).size()).isEqualTo(itemQty);
         Assertions.assertThat(checkoutOverviewPage.getCheckoutQty().getText()).isEqualTo(productQty);
         Assertions.assertThat(checkoutOverviewPage.getItemInCheckout().getText()).isEqualTo(product);
